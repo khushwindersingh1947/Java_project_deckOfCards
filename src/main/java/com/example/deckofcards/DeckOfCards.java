@@ -1,6 +1,8 @@
 package com.example.deckofcards;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class DeckOfCards {
     private ArrayList<Card> deck;
@@ -15,9 +17,19 @@ public class DeckOfCards {
                 deck.add(newCard);
             }
         }
-
-//        deck = new ArrayList<>();
-//        deck.add(new Card("spades",))
     }
 
+    //method to shuffle cards
+    public void shuffle(){
+        Collections.shuffle(deck);
+    }
+
+    //returns null if no cards are left
+    public Card dealTopCard(){
+        if(deck.size()> 0) {
+            return deck.remove(0);
+        }else{
+            return null;
+        }
+    }
 }

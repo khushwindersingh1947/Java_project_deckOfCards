@@ -38,7 +38,7 @@ public class Card {
     }
 
     public static List<String> getValidSuits(){
-        return Arrays.asList("Club","hearts","diamonds","spades");
+        return Arrays.asList("club","hearts","diamonds","spades");
     }
     public static List<String> getValidFaceNames(){
         return Arrays.asList("2","3","4","5","6","7","8","9","10","jack","queen","king","ace");
