@@ -2,12 +2,13 @@ package com.example.deckofcards;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 public class Card {
 
     private String suit, faceName;
     public Card(String suit, String faceName) {
-        this.suit = suit;
+        setSuit(suit);
         this.faceName = faceName;
     }
 
@@ -20,13 +21,26 @@ public class Card {
     }
 
     public void setSuit(String suit) {
-        this.suit = suit;
+        suit = suit.toLowerCase();
+        if(getValidSuits().contains(suit)){
+            this.suit = suit;
+        }else{
+            throw new IllegalArgumentException(suit + " was not in the valid list"+ getValidSuits());
+        }
+    }
+    public void setFaceName(String faceName) {
+        faceName = faceName.toLowerCase();
+        if(getValidFaceNames().contains(faceName)){
+            this.faceName = faceName;
+        }else{
+            throw new IllegalArgumentException(faceName + " was not in the valid list"+ getValidFaceNames());
+        }
     }
 
-    public void setFaceName(String faceName) {
-        this.faceName = faceName;
-    }
     public static List<String> getValidSuits(){
         return Arrays.asList("Club","hearts","diamonds","spades");
+    }
+    public static List<String> getValidFaceNames(){
+        return Arrays.asList("2","3","4","5","6","7","8","9","10","jack","queen","king","ace");
     }
 }
