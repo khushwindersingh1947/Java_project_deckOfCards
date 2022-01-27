@@ -7,9 +7,9 @@ import java.util.Locale;
 public class Card {
 
     private String suit, faceName;
-    public Card(String suit, String faceName) {
+    public Card( String faceName,String suit) {
         setSuit(suit);
-        this.faceName = faceName;
+        setFaceName(faceName);
     }
 
     public String getSuit() {
@@ -42,5 +42,19 @@ public class Card {
     }
     public static List<String> getValidFaceNames(){
         return Arrays.asList("2","3","4","5","6","7","8","9","10","jack","queen","king","ace");
+    }
+    //automatic assignment to class
+    public String toString(){
+        return String.format("%s of %s", faceName,suit);
+    }
+    public String getColor(){
+        if(suit =="club" || suit == "spades"){
+            return "black";
+        }else{
+            return "red";
+        }
+    }
+    public int getFaceValue(){
+        return getValidFaceNames().indexOf(faceName)+2;
     }
 }

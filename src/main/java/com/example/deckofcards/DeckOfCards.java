@@ -1,19 +1,16 @@
 package com.example.deckofcards;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 
 public class DeckOfCards {
     private ArrayList<Card> deck;
-
     //constructor to build 52 card objects
     public DeckOfCards(){
-
+        deck = new ArrayList<>();
         for(String suit: Card.getValidSuits()) {
             for (String faceName : Card.getValidFaceNames()) {
-//                String name = faceName + "Of" + suit;
-                Card  newCard = new Card(suit, faceName);
+                Card newCard = new Card(faceName, suit);
                 deck.add(newCard);
             }
         }
@@ -32,4 +29,9 @@ public class DeckOfCards {
             return null;
         }
     }
+    public int countCards(){
+        return deck.size();
+    }
+
+
 }
